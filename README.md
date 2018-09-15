@@ -12,17 +12,28 @@ Authenticated users have the ability to post, edit, and delete their own items.
 ### 
 ## Set Up
 1. Install VirtualBox and Vagrant
-2. Clone this repo
-3. Unzip and place the Item Catalog folder in your Vagrant directory
-4. Launch Vagrant
+2. Clone this repo or download, Unzip and place the Item Catalog folder in your Vagrant directory
+3. Launch Vagrant
 ```
 $ Vagrant up 
 ```
-5. Login to Vagrant
+4. Login to Vagrant
 ```
 $ Vagrant ssh
 ```
-6. Change directory to `/vagrant`
+5. Change directory to `/vagrant`
 ```
-$ Cd /vagrant
+$ cd /vagrant
+```
+5. Change directory to `/Item Catalog `
+```
+$ cd /Item Catalog 
+```
+5. Run database_setup 
+```
+$ python database_setup.py
+```
+5. Populate database with data items
+```
+$ python fakeitems.py
 ```
