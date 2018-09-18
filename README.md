@@ -1,6 +1,7 @@
 # Item-Catalog-App
 A simple web application that provides a list of items within a variety of categories and integrate third party user registration and authentication. Integrates third party user registration and authentication(Google/Facebook Auth). 
 Authenticated users have the ability to post, edit, and delete their own items.
+Implement CSRF protection on your all CRUD operations.
 
 ## Usage
 
@@ -8,6 +9,7 @@ Authenticated users have the ability to post, edit, and delete their own items.
 * Python 2.7
 * Vagrant
 * VirtualBox
+* Create a Google OAuth credentials. [Integrating GSignIn(SSO)](https://developers.google.com/identity/sign-in/web/sign-in).
 
 ### 
 ## Set Up
@@ -36,4 +38,12 @@ $ python database_setup.py
 5. Populate database with data items
 ```
 $ python fakeitems.py
+```
+6. Download client_secrets.json of your Google oAUth.
+
+7.  Replace data-clientid with client_id value in login.html
+
+8. Run the app
+```
+$ python application.py
 ```
