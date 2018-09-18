@@ -30,7 +30,7 @@ session = DBSession()
 user1 = User(
     name="Sudhanshu Tiwari",
     email="sudhanshu.tiwari1590@gmail.com",
-    picture='~\static\image-profile.jpg')
+    picture='/assests/image-profile.jpg')
 session.add(user1)
 session.commit()
 
