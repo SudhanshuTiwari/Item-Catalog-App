@@ -149,7 +149,8 @@ ul {
 /* Add Category Template */
 
 .category-item__form .form__label {
-	display: inline;
+	display: inline-block;
+	min-width: 150px;
 	font-size: 1.1rem;
 	font-weight: 700;
 	letter-spacing: .1rem;
