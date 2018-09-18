@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect, jsonify, make_response, flash
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.pool import StaticPool
 from database_setup import Base, Category, CategoryItem, User
 from flask import session as login_session
 import random, string, json, httplib2, requests
@@ -11,7 +12,9 @@ app = Flask(__name__)
 CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
 
 # Connect to Database
-engine = create_engine('sqlite:///itemcatalog.db')
+engine = create_engine('sqlite:///itemcatalog.db',
+    connect_args={'check_same_thread': False},
+    poolclass=StaticPool, echo=True)
 Base.metadata.bind = engine
 
 # Create database session
