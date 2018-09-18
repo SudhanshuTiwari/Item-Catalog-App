@@ -95,7 +95,7 @@ ul {
 	border-bottom: .5rem solid #9b4dca;
 	height: .1rem;
 	display: block;
-	width: 15rem;
+	/* width: 15rem; */
 }
 
 .items__item .item__name {
@@ -130,7 +130,7 @@ ul {
 	border-bottom: .5rem solid #9b4dca;
 	height: .1rem;
 	display: block;
-	width: 5rem;
+	/* width: 5rem; */
 }
 
 .category-item__description {
@@ -176,11 +176,15 @@ ul {
 	text-align: center;
 }
 
-.login__separator {
+.login__separator{
 	font-weight: 700;
 	margin: 20px 0;
 }
-
+.form_separator {
+	/* border-bottom: 1px solid #9b4dca; */
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
 .login__button {
 
 }
