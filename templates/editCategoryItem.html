@@ -34,9 +34,10 @@
 					</div>
 
 				</fieldset>
-				<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}" class="button button-outline">Back</a>
-				<input type="submit" value="Save">
-				<p class="flash__message">This is a flash message.</p>
+				<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}" class="btn btn-default">Back</a>
+					<button class="btn btn-default" type="submit">Save</button>
+				<!-- <input type="submit" value="Save"> -->
+				<!-- <p class="flash__message">This is a flash message.</p> -->
 			</form>
 		</div>
 	</div>
