@@ -40,7 +40,11 @@
 						</a>
 					{% endfor %}
 				</ul>
-				<!-- <a href="/" class="button u list__add">Add Item</a> -->
+				<button type="button" class="btn btn-default">
+					{% if 'username' in session %}
+				 <a href="{{url_for('addCategoryItem')}}" class="button u list__add">Add Item</a>
+				 {% endif %}
+			 </button>
 			</div>
 		</div>
 	</div>
