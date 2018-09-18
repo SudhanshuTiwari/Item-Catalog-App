@@ -2,47 +2,55 @@
 
 {% block content %}
 
-	<div class="row">
-		<div class="categories column column-25">
+<div class="row">
+	<div class="col-sm-3 col-md-2 sidebar categories" style="min-width: 250px; min-height: 500px;">
 			<div class="categories__list">
-				<h6 class="list__header">
-					<span class="header__title">Categories</span>
-					<span class="header__bar"></span>
-				</h6>
-				<ul class="list__items">
-					{% for category in categories %}
-						<a href="{{url_for('showCategory', catalog_id = category.id )}}">
-							<li class="items__item">
-								<span class="item__name">{{category.name}}</span>
-							</li>
-						</a>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
+					<h6 class="list__header">
+						<span class="header__title">Categories</span>
+						<span class="header__bar"></span>
+					</h6>
+					<ul class="nav nav-sidebar list__items list-group">
+						{% for category in categories %}
+							<a href="{{url_for('showCategory', catalog_id = category.id )}}">
+								<li class="items__item list-group-item">
+									<span class="item__name">{{category.name}}</span>
+								</li>
+							</a>
+						{% endfor %}
+					</ul>
+					</div>
+	    </div>
 
-		<div class="latest column column-75">
-			<div class="latest__list">
-				<h6 class="list__header">
-					<span class="header__title">Latest Items</span>
-					<span class="header__bar"></span>
-				</h6>
-				<ul class="list__items">
-					{% for categoryItem in categoryItems %}
-						<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}">
-							<li class="items__item">
-								<span class="item__name">{{categoryItem.name}}</span>
-								<span class="item__type">({{categoryItem.category.name}})</span>
-							</li>
-						</a>
-					{% endfor %}
-				</ul>
 
-				{% if 'username' in session %}
-					<a href="{{url_for('addCategoryItem')}}" class="button u list__add">Add Item</a>
-				{% endif %}
-			</div>
-		</div>
+<div class="column column-25">
+	<div class="latest__list">
+		<h6 class="list__header">
+			<span class="header__title">Latest Items</span>
+			<span class="header__bar"></span>
+		</h6>
+		<ul class="list-group" style="display: inline-block;">
+			{% for categoryItem in categoryItems %}
+				<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}">
+					<li class="items__item list-group-item">
+						<span class="item__name">{{categoryItem.name}}</span>
+						<span class="item__type">({{categoryItem.category.name}})</span>
+					</li>
+				</a>
+			{% endfor %}
+
+		</ul>
+		<button type="button" class="btn btn-default">
+			{% if 'username' in session %}
+		 <a href="{{url_for('addCategoryItem')}}" class="button u list__add">Add Item</a>
+		 {% endif %}
+	 </button>
+
+		<!-- {% if 'username' in session %}
+			<a href="{{url_for('addCategoryItem')}}" class="button u list__add">Add Item</a>
+		{% endif %} -->
 	</div>
+</div>
+
+</div>
 
 {% endblock %}

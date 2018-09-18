@@ -2,17 +2,21 @@
 
 {% block content %}
 
+
+
+
+
 	<div class="row">
-		<div class="categories column column-25">
+		<div class="col-sm-3 col-md-2 sidebar categories" style="min-width: 250px; min-height: 500px;"">
 			<div class="categories__list">
 				<h6 class="list__header">
 					<span class="header__title">Categories</span>
 					<span class="header__bar"></span>
 				</h6>
-				<ul class="list__items">
+				<ul class="list-group" style="display: inline-block;">
 					{% for category in categories %}
 						<a href="{{url_for('showCategory', catalog_id = category.id )}}">
-							<li class="items__item">
+							<li class="items__item list-group-item">
 								<span class="item__name">{{category.name}}</span>
 							</li>
 						</a>
@@ -20,17 +24,17 @@
 				</ul>
 			</div>
 		</div>
-
-		<div class="category-items column column-75">
+		<!-- list of latest items -->
+		<div class="column column-25">
 			<div class="category-items__list">
 				<h6 class="list__header">
 					<span class="header__title">{{categoryName}} Instruments ({{categoryItemsCount}} Items)</span>
 					<span class="header__bar"></span>
 				</h6>
-				<ul class="list__items">
+				<ul class="list__items list-group" style="display:inline-block;">
 					{% for categoryItem in categoryItems %}
 						<a href="{{url_for('showCategoryItem', catalog_id = categoryItem.category_id ,item_id = categoryItem.id )}}">
-							<li class="items__item">
+							<li class="items__item list-group-item">
 								<span class="item__name">{{categoryItem.name}}</span>
 							</li>
 						</a>
