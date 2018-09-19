@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
+# rules for user class, store/handles user data
 class User(Base):
     __tablename__ = 'user'
 
@@ -17,6 +18,7 @@ class User(Base):
     picture = Column(String(250))
 
 
+# rules for Category class, store/handles category data and mapping with user
 class Category(Base):
     __tablename__ = 'category'
 
@@ -34,6 +36,8 @@ class Category(Base):
             }
 
 
+# rules for Category items class
+# store/handles items data and mapping with its category and user
 class CategoryItem(Base):
     __tablename__ = 'category_item'
 

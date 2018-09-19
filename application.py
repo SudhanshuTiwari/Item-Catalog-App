@@ -512,6 +512,7 @@ def showCategoryJSON(catalog_id):
     categoryItems = session.query(
         CategoryItem
         ).filter_by(category_id=catalog_id).all()
+    print "JSON DATA" % categoryItems
     return jsonify(
         categoryItems=[
             categoryItem.serialize for categoryItem in categoryItems
