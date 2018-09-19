@@ -47,3 +47,4 @@ $ python fakeitems.py
 ```
 $ python application.py
 ```
+9. Open http://localhost:5000 in browser
