@@ -17,6 +17,7 @@ import json
 import httplib2
 import requests
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
+from functools import wraps
 
 app = Flask(__name__)
 
@@ -60,6 +61,17 @@ def getUserID(email):
         return user.id
     except:
         return None
+
+
+def login_required(function):
+    @wraps(function)
+    def wrapper(*args, **kwargs):
+        if 'username' in login_session:
+            return function(*args, **kwargs)
+        else:
+            flash('A user must be logged to add a new item.')
+            return redirect('/login')
+    return wrapper
 
 
 @app.route('/')
@@ -125,10 +137,11 @@ def showCategoryItem(catalog_id, item_id):
 
 
 @app.route('/catalog/add', methods=['GET', 'POST'])
+@login_required
 def addCategoryItem():
     # Check if user is logged in
-    if 'username' not in login_session:
-        return redirect('/login')
+    # if 'username' not in login_session:
+    #    return redirect('/login')
 
     if request.method == 'POST':
             # TODO: Retain data when there is an error
@@ -166,10 +179,11 @@ def addCategoryItem():
     '/catalog/<int:catalog_id>/items/<int:item_id>/edit',
     methods=['GET', 'POST']
     )
+@login_required
 def editCategoryItem(catalog_id, item_id):
     # Check if user is logged in
-    if 'username' not in login_session:
-        return redirect('/login')
+    # if 'username' not in login_session:
+    #    return redirect('/login')
 
     # Get category item
     categoryItem = session.query(CategoryItem).filter_by(id=item_id).first()
@@ -210,10 +224,11 @@ def editCategoryItem(catalog_id, item_id):
     '/catalog/<int:catalog_id>/items/<int:item_id>/delete',
     methods=['GET', 'POST']
     )
+@login_required
 def deleteCategoryItem(catalog_id, item_id):
     # Check if user is logged in
-    if 'username' not in login_session:
-        return redirect('/login')
+    # if 'username' not in login_session:
+    #    return redirect('/login')
 
     # Get category item
     categoryItem = session.query(CategoryItem).filter_by(id=item_id).first()
