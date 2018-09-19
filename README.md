@@ -53,14 +53,15 @@ $ python application.py
 13. Open http://localhost:5000 in browser
 
 
-## In addition user can access JSON data of each API by simply appending JSON as suffix.
+#### Accessing data in JSON format for item catalog REST API's used in applucation:
+* User can access JSON data of each API by simply appending JSON as suffix.
 
-#### Get All Categories
-* Get All items category - Default [GET]
+###### Example
+* Get All items categories - [GET]
  
-* Request URL: http://localhost:5001/catalog/JSON
+ Request URL: http://localhost:5001/catalog/JSON
 
-* Response 200 (application/json)
+ Response 200 (application/json)
 
            {
               "categories": [
