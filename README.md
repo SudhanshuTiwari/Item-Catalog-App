@@ -5,14 +5,13 @@ Implement CSRF protection on your all CRUD operations.
 
 ## Usage
 
-### Prerequisites
+#### Prerequisites
 * Python 2.7
 * Vagrant
 * VirtualBox
 * Create a Google OAuth credentials. [Integrating GSignIn(SSO)](https://developers.google.com/identity/sign-in/web/sign-in).
 
-### 
-## Set Up
+#### Set Up
 1. Install VirtualBox and Vagrant
 2. Clone this repo or download, Unzip and place the Item Catalog folder in your Vagrant directory
 3. Launch Vagrant
@@ -52,3 +51,41 @@ $ python fakeitems.py
 $ python application.py
 ```
 13. Open http://localhost:5000 in browser
+
+
+## In addition user can access JSON data of each API by simply appending JSON as suffix.
+
+#### Get All Categories
+* Get All items category - Default [GET]
+ 
+* Request URL: http://localhost:5001/catalog/JSON
+
+* Response 200 (application/json)
+
+           {
+              "categories": [
+                {
+                  "id": 1, 
+                  "name": "Arts & Photography"
+                }, 
+                {
+                  "id": 2, 
+                  "name": "Biographies & Memoirs"
+                }, 
+                {
+                  "id": 3, 
+                  "name": "Business & Investing"
+                }, 
+                {
+                  "id": 4, 
+                  "name": "Literature & Fiction"
+                }
+              ]
+            }
+        
+  
+
+#### Screenshot: All Items of Category Arts and Photography.
+![image](https://user-images.githubusercontent.com/22967893/45753342-187e8200-bc36-11e8-81c6-292051ee3839.png)
+
+
