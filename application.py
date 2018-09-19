@@ -267,6 +267,7 @@ def login():
     return render_template('login.html', STATE=state)
 
 
+# delete user data on logout from login session variables
 @app.route('/logout')
 def logout():
     if login_session['provider'] == 'facebook':
@@ -324,6 +325,9 @@ def fbconnect():
     url = 'https://graph.facebook.com/v2.4/me?%s&fields=name,id,email' % token
     h = httplib2.Http()
     result = h.request(url, 'GET')[1]
+
+# Gathers data from facebook Sign In API
+# and places it inside a session variable.
 
     data = json.loads(result)
     login_session['provider'] = 'facebook'
@@ -444,7 +448,8 @@ def gconnect():
     login_session['access_token'] = credentials.access_token
     login_session['gplus_id'] = gplus_id
 
-    # Get user info
+    # Gathers data from facebook Sign In API
+    # and places it inside a session variable.
     userinfo_url = "https://www.googleapis.com/oauth2/v1/userinfo"
     params = {'access_token': credentials.access_token, 'alt': 'json'}
     answer = requests.get(userinfo_url, params=params)
