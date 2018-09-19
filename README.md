@@ -27,24 +27,28 @@ $ Vagrant ssh
 ```
 $ cd /vagrant
 ```
-5. Change directory to `/Item Catalog `
+6. Change directory to `/Item Catalog `
 ```
 $ cd /Item Catalog 
 ```
-5. Run database_setup 
+7. Run following command to download dependencies
+```
+pip install -r requirements.txt
+```
+8. Run database_setup 
 ```
 $ python database_setup.py
 ```
-5. Populate database with data items
+9. Populate database with data items
 ```
 $ python fakeitems.py
 ```
-6. Download client_secrets.json of your Google oAUth.
+10. Download client_secrets.json of your Google oAUth.
 
-7.  Replace data-clientid with client_id value in login.html
+11.  Replace data-clientid with client_id value in login.html
 
-8. Run the app
+12. Run the app
 ```
 $ python application.py
 ```
-9. Open http://localhost:5000 in browser
+13. Open http://localhost:5000 in browser
