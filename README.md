@@ -1,5 +1,5 @@
 # Item-Catalog-App
-A simple web application that provides a list of items within a variety of categories and integrate third party user registration and authentication. Integrates third party user registration and authentication(Google/Facebook Auth). 
+A simple web application that provides a list of items within a variety of categories and integrate third party user registration and authentication. Integrates Single sign-on(SSO)  user registration and authentication(Google/Facebook OAuth). 
 Authenticated users have the ability to post, edit, and delete their own items.
 Implements CSRF protection on all CRUD operations.
 
@@ -10,6 +10,7 @@ Implements CSRF protection on all CRUD operations.
 * Vagrant
 * VirtualBox
 * Create a Google OAuth credentials. [Integrating GSignIn(SSO)](https://developers.google.com/identity/sign-in/web/sign-in).
+* Register, configure, and develop your Facebook web app.[Registering facebook App](https://developers.facebook.com/docs/apps/). 
 
 #### Set Up
 1. Install VirtualBox and Vagrant
@@ -42,9 +43,20 @@ $ python database_setup.py
 ```
 $ python fakeitems.py
 ```
-10. Download client_secrets.json of your Google oAUth.
+10. Integrate SSO:
 
-11.  Replace data-clientid with client_id value in login.html
+a. For GoogleSignIn OAuth
+ ```
+  Download client_secrets.json of your Google oAUth.
+ ```
+ 
+ b. For facebook SSO
+ ```
+  Copy the AppId and App Secret yuo created example refer screenshot below:
+```
+![image](https://user-images.githubusercontent.com/22967893/45941813-7b3c9880-bffd-11e8-93fd-6881b6706058.png)
+
+11.  Replace data-clientid with client_id value(GoogleSignIn) and AppId, Version for facebook SSO in login.html
 
 12. Run the app
 ```
